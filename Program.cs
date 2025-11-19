@@ -3,13 +3,13 @@ using DotNetCoreSqlDb.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add database context and cache
-if(builder.Environment.IsDevelopment())
-{
-    builder.Services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbConnection")));
-    builder.Services.AddDistributedMemoryCache();
-}
-else
+// if(builder.Environment.IsDevelopment())
+// {
+//     builder.Services.AddDbContext<MyDatabaseContext>(options =>
+//         options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbConnection")));
+//     builder.Services.AddDistributedMemoryCache();
+// }
+// else
 {
     builder.Services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
